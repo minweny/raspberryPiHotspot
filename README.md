@@ -12,18 +12,18 @@ We choose "Raspbian Buster with desktop and recommended software"
 
     PC ethernet port configuration:  
     >IP address: 192.168.0.1  
-Subnet mask: 255.255.255.0
+    >Subnet mask: 255.255.255.0
 
 4. Boot Raspberry Pi, enable SSH, VNC [https://www.raspberrypi.org/documentation/remote-access/ssh/]  
 Open terminal, type 
 ```
   ifconfig
 ```
-or
+    or
 ```
-ip a
+  ip a
 ```
-From eth0 row, write down your pi IP address. My pi shows 192.168.0.151
+    From eth0 row, write down your pi IP address. My pi shows 192.168.0.151
 
 4. Switch back to your PC, ping pi_ip_address to verify if your connection works
 ```
