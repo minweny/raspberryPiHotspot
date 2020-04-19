@@ -1,5 +1,5 @@
 # raspberryPiHotspot
-Raspberry Pi 4 Hotspot Set Up / 树莓派4热点设置
+Raspberry Pi 4 Set Up Process and Launch Hotspot / 树莓派4设置以及创建热点
 
 ## Useful commands:
 ```bash
@@ -14,6 +14,8 @@ ssh pi@raspberrypi.local
 ssh -4 pi@raspberrypi.local
 # ssh to ipv6
 ssh pi@fe80::a957:4002:81fa:2c4c%18
+# Switch to root privileges
+sudo -i
 ```
 ## Notes:
 * Pi 4 won't boot without HDMI plugged in
@@ -33,6 +35,9 @@ ssh pi@fe80::a957:4002:81fa:2c4c%18
 * X-forwarding
 > [https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md]
 
+* When PC reboots, pi may lose network
+> disable Wifi card, ethernet card, Wifi card sharing. Then reopen.
+
 ## Steps:
 1. Download Raspbian[https://www.raspberrypi.org/downloads/raspbian/]  
 We choose "Raspbian Buster with desktop and recommended software"
@@ -46,6 +51,8 @@ We choose "Raspbian Buster with desktop and recommended software"
     PC ethernet port configuration:  
     >IP address: 192.168.0.1  
     >Subnet mask: 255.255.255.0
+    
+    If your PC is using Wifi, right click -> properites -> sharing -> allow other users -> Home networking connection(Ethernet, the one connects with pi). Now, your pi would have the network. 
 
 4. Boot Raspberry Pi, enable SSH, VNC [https://www.raspberrypi.org/documentation/remote-access/ssh/]  
 Open terminal, type 
@@ -104,7 +111,12 @@ ping raspberrypi.local -4
 ```
 
 8. Install Chinese Input (optional)
-
+```
+// Install Google Pinyin input method
+sudo apt-get install fcitx fcitx-googlepinyin fcitx-module-cloudpinyin fcitx-sunpinyin
+// Restart the Raspberry Pi
+reboot
+```
 
 9. Launch Hotspot [https://www.raspberrypi.org/forums/viewtopic.php?t=223295]
 ```
