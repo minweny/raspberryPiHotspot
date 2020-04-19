@@ -8,8 +8,9 @@ We choose "Raspbian Buster with desktop and recommended software"
 
 3. Use ethernet cable to connect your PC ethernet port to Raspberry Pi ethernet port  
   Looks like this
-  >PC - PC ethernet port - Raspberry Pi ethernet port - Raspberry Pi
-
+   >PC - PC ethernet port - Raspberry Pi ethernet port - Raspberry Pi
+---:
+aa
  PC ethernet port configuration:  
 - IP address: 192.168.0.1
 - Subnet mask: 255.255.255.0
