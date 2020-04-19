@@ -1,5 +1,5 @@
 # raspberryPiHotspot
-Raspberry Pi 4 Set Up Process and Launch Hotspot / 树莓派4设置以及创建热点
+Raspberry Pi 4 Install Raspbian and Launch Hotspot / 树莓派4设置以及创建热点
 
 ## Useful commands:
 ```bash
