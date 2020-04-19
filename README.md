@@ -37,6 +37,13 @@ ping raspberrypi.local
 ```
 ssh pi@pi_ip_address
 ```
+or
+```
+ssh pi@raspberrypi.local
+```
+```
+sudo shutdown -h now
+```
 
 6. Set up static IP[https://www.ionos.com/digitalguide/server/configuration/provide-raspberry-pi-with-a-static-ip-address/]
 
