@@ -17,17 +17,17 @@ ssh pi@fe80::a957:4002:81fa:2c4c%18
 ```
 ## Notes:
 * Pi 4 won't boot without HDMI plugged in
-> 
+> Adding hdmi_force_hotplug=1 to /boot/config.txt seems to have solved the problem. [https://www.raspberrypi.org/forums/viewtopic.php?t=253312]
 
 * nmap, raspberrypi.local tutorial
-> Adding hdmi_force_hotplug=1 to /boot/config.txt seems to have solved the problem. [https://www.raspberrypi.org/documentation/remote-access/ip-address.md]
+> [https://www.raspberrypi.org/documentation/remote-access/ip-address.md]
 
 * Resolve "Host key verification failed"
 > Delete raspberrypi.local column in known_hosts file if you are using windows  
 > For example, C:\Users\ybob\.ssh\known_hosts
 
 * HDMI port
-> Raspberry Pi 4 uses Micro HDMI 
+> Raspberry Pi 4 uses Micro HDMI  
 > Raspberry Pi Zero uses Mini HDMI
 
 * X-forwarding
