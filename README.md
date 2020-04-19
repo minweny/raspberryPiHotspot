@@ -18,6 +18,7 @@ ssh pi@fe80::a957:4002:81fa:2c4c%18
 sudo -i
 # system log
 tail -100f /var/log/syslog
+sudo iptables -L
 ```
 ## Notes:
 * Pi 4 won't boot without HDMI plugged in
