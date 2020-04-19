@@ -16,6 +16,8 @@ ssh -4 pi@raspberrypi.local
 ssh pi@fe80::a957:4002:81fa:2c4c%18
 # Switch to root privileges
 sudo -i
+# system log
+tail -100f /var/log/syslog
 ```
 ## Notes:
 * Pi 4 won't boot without HDMI plugged in
@@ -116,9 +118,43 @@ ping raspberrypi.local -4
 sudo apt-get install fcitx fcitx-googlepinyin fcitx-module-cloudpinyin fcitx-sunpinyin
 // Restart the Raspberry Pi
 reboot
+// Use shift to change input method
 ```
 
-9. Launch Hotspot [https://www.raspberrypi.org/forums/viewtopic.php?t=223295]
+9. Launch Hotspot [https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md]  
+To be continued...
+
+## Additonal Notes:
+```
+配置Pycharm环境变量：
+假设你把pycharm安装到/home/pi/pycharm-community-2019.1.3
+那么在~/.profile里加一句话
+export PATH=$PATH:~/pycharm-community-2019.1.3/bin
+保存，然后打开一个新命令行
+输入：
+pycharm.sh
+程序就会启动啦。当命令行关闭时，pycharm会被强制关掉
+注：~/.bash_rc似乎没法使用，不知道为啥
+```
+Adding A 2nd Fixed IP Address To The Ethernet Port
+```
+For example, say you want the RPi Ethernet port to use DHCP, but to also have a fixed IP address so you can connect to it using a direct cable connection from a laptop.
+
+
+sudo nano /etc/network/interfaces
+Use this for the eth0 adaptor:
+
+
+auto eth0
+allow-hotplug eth0
+iface eth0 inet dhcp
+
+auto eth0:1
+iface eth0:1 inet static
+       address 192.168.1.123
+       netmask 255.255.255.0
+```
+route ip packet from wifi to ethernet [https://www.raspberrypi.org/forums/viewtopic.php?t=223295]
 ```
 Install dnsmasq.
 Code: Select all
@@ -153,18 +189,4 @@ Code: Select all
 
 sudo service dnsmasq status
 It should show active (running), and a list of IP assignments to each mac address..
-```
-
-
-## Some Chinese Notes:
-```
-配置Pycharm环境变量：
-假设你把pycharm安装到/home/pi/pycharm-community-2019.1.3
-那么在~/.profile里加一句话
-export PATH=$PATH:~/pycharm-community-2019.1.3/bin
-保存，然后打开一个新命令行
-输入：
-pycharm.sh
-程序就会启动啦。当命令行关闭时，pycharm会被强制关掉
-注：~/.bash_rc似乎没法使用，不知道为啥
 ```
