@@ -7,18 +7,17 @@ We choose "Raspbian Buster with desktop and recommended software"
 2. Flash Raspbian system to SD card with balenaetcher[https://www.balena.io/etcher/]
 
 3. Use ethernet cable to connect your PC ethernet port to Raspberry Pi ethernet port  
-  Looks like this
-   >PC - PC ethernet port - Raspberry Pi ethernet port - Raspberry Pi
----:
-aa
- PC ethernet port configuration:  
-- IP address: 192.168.0.1
-- Subnet mask: 255.255.255.0
+  Looks like this:
+    >PC - PC ethernet port - Raspberry Pi ethernet port - Raspberry Pi
 
-3. Boot Raspberry Pi, enable SSH, VNC [https://www.raspberrypi.org/documentation/remote-access/ssh/]
-Open terminal, type
+    PC ethernet port configuration:  
+>IP address: 192.168.0.1  
+Subnet mask: 255.255.255.0
+
+4. Boot Raspberry Pi, enable SSH, VNC [https://www.raspberrypi.org/documentation/remote-access/ssh/]  
+Open terminal, type 
 ```
-ifconfig
+  ifconfig
 ```
 or
 ```
