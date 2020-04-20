@@ -131,6 +131,78 @@ reboot
 ```
 
 9. Launch Hotspot [https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md]  
+```
+# dnsmasq -> DHCP service, hostapd -> launch wifi
+sudo apt install dnsmasq hostapd
+# turn off first
+sudo systemctl stop dnsmasq
+sudo systemctl stop hostapd
+
+# configure static IP
+sudo nano /etc/dhcpcd.conf
+# append at the end
+interface wlan0
+    static ip_address=192.168.4.1/24
+    nohook wpa_supplicant
+# restart dhcpcd
+sudo service dhcpcd restart
+# configure DHCP service
+sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
+sudo nano /etc/dnsmasq.conf
+# append
+interface=wlan0      # Use the require wireless interface - usually wlan0
+dhcp-range=192.168.4.2,192.168.4.20,255.255.255.0,24h
+# start dnsmasq
+sudo systemctl start dnsmasq
+
+# configure hostapd
+sudo nano /etc/hostapd/hostapd.conf
+# copy & paste, fill in the password
+# pi 4 uses the same driver number as pi 3. hw_mode=g is the best choice here
+interface=wlan0
+driver=nl80211
+ssid=ChiTown2
+hw_mode=g
+channel=7
+wmm_enabled=0
+macaddr_acl=0
+auth_algs=1
+ignore_broadcast_ssid=0
+wpa=2
+wpa_passphrase=password
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+# open
+sudo nano /etc/default/hostapd
+# Find the line with #DAEMON_CONF, and replace it with this:
+DAEMON_CONF="/etc/hostapd/hostapd.conf"
+
+# start up
+sudo systemctl unmask hostapd
+sudo systemctl enable hostapd
+sudo systemctl start hostapd
+# check status
+sudo systemctl status hostapd
+sudo systemctl status dnsmasq
+
+# Add routing and masquerade
+# Edit /etc/sysctl.conf and uncomment this line:
+
+net.ipv4.ip_forward=1
+# Add a masquerade for outbound traffic on eth0:
+
+sudo iptables -t nat -A  POSTROUTING -o eth0 -j MASQUERADE
+# Save the iptables rule.
+
+sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
+Edit /etc/rc.local and add this just above "exit 0" to install these rules on boot.
+
+iptables-restore < /etc/iptables.ipv4.nat
+
+# Reboot and ensure it still functions.
+```
+
 To be continued...
 
 ## Additonal Notes:
@@ -198,4 +270,17 @@ Code: Select all
 
 sudo service dnsmasq status
 It should show active (running), and a list of IP assignments to each mac address..
+```
+sh vc. bash 
+> [https://stackoverflow.com/questions/5725296/difference-between-sh-and-bash]  
+```
+The complication is that /bin/sh could be a symbolic link or a hard link. If it's a symbolic link, a portable way to resolve it is:
+
+% file -h /bin/sh
+/bin/sh: symbolic link to bash
+If it's a hard link, try
+
+% find -L /bin -samefile /bin/sh
+/bin/sh
+/bin/bash
 ```
