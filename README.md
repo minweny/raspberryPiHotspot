@@ -20,6 +20,14 @@ sudo -i
 tail -100f /var/log/syslog
 sudo iptables -L
 ```
+
+## Remote control pi from windows [http://larsonm.com/index.php/2013/remotely-reboot-your-raspberry-pi-from-a-windows-desktop-shortcut-using-plink-putty/]
+```
+plink -ssh user@server -pw password reboot
+plink -ssh pi@192.168.0.10 -pw password reboot
+plink -ssh pi@192.168.0.10 -pw password "sudo shutdown -h now"
+```
+
 ## Notes:
 * Pi 4 won't boot without HDMI plugged in
 > Adding hdmi_force_hotplug=1 to /boot/config.txt seems to have solved the problem. [https://www.raspberrypi.org/forums/viewtopic.php?t=253312]
