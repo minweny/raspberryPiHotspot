@@ -47,7 +47,9 @@ plink -ssh pi@192.168.0.10 -pw password "sudo shutdown -h now"
 > Raspberry Pi Zero uses Mini HDMI
 
 * X-forwarding
-> [https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md]
+> [https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md] 
+> [http://raspberrypiprogramming.blogspot.com/2014/07/how-to-execute-x11-applications-from.html]  
+`ssh -Y pi@192.168.4.1`
 
 * When PC reboots, pi may lose network
 > disable Wifi card, ethernet card, Wifi card sharing. Then reopen.
