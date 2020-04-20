@@ -1,6 +1,9 @@
 # raspberryPiHotspot
 Raspberry Pi 4 Install Raspbian and Launch Hotspot / 树莓派4设置以及创建热点
 
+# Easier alternative way
+> [https://github.com/billz/raspap-webgui]
+
 ## Useful commands:
 ```bash
 sudo shutdown -h now
