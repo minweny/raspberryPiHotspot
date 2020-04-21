@@ -24,6 +24,7 @@ tail -100f /var/log/syslog
 sudo iptables -L
 # check linux version
 cat /etc/os-release
+ping -S 192.168.0.1 google.com
 ```
 
 ## Remote control pi from windows [http://larsonm.com/index.php/2013/remotely-reboot-your-raspberry-pi-from-a-windows-desktop-shortcut-using-plink-putty/]
