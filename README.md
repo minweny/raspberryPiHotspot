@@ -25,6 +25,8 @@ sudo iptables -L
 # check linux version
 cat /etc/os-release
 ping -S 192.168.0.1 google.com
+# find out the default gateway
+ip route show
 ```
 
 ## Remote control pi from windows [http://larsonm.com/index.php/2013/remotely-reboot-your-raspberry-pi-from-a-windows-desktop-shortcut-using-plink-putty/]
@@ -32,6 +34,17 @@ ping -S 192.168.0.1 google.com
 plink -ssh user@server -pw password reboot
 plink -ssh pi@192.168.0.10 -pw password reboot
 plink -ssh pi@192.168.0.10 -pw password "sudo shutdown -h now"
+```
+
+## arp binding  
+Sometime your network may not be safe
+```
+Linux:
+arp
+sudo arp -s 10.0.0.1 b0:39:56:d3:08:2d
+Windows CMD admin:
+netsh interface ipv4 add neighbors "Wi-Fi 2" 10.0.0.1 b0-39-56-d3-08-2d
+netsh interface ip delete neighbors "Network card name here" "Gateway.IP.goes.here"
 ```
 
 ## Notes:
