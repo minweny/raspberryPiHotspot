@@ -36,8 +36,23 @@ plink -ssh pi@192.168.0.10 -pw password reboot
 plink -ssh pi@192.168.0.10 -pw password "sudo shutdown -h now"
 ```
 
+## pring ip table
+```
+Windows:
+route print -4
+```
+
+## interface vs. gateway
+```
+In this example, the address in the interface column is used to identify the particular interface (your computer may have more than one). Since naming conventions often depend on hardware, it is easier to identify them by IP address.
+
+For example, your routing table shows the default gateway is 192.168.0.1, and it can be reached by using the interface that has the IP address 192.168.0.100.
+
+IP routing tables assume the device has multiple network interfaces, although most PCs have only one. When there is more than one, the device needs to know which interface to use to reach the gateway. The interface column defines that. In the context of home networking, only your router has more than one interface.
+```
+
 ## arp binding  
-Sometime your network may not be safe
+Sometime your network may not be safe. Host and guest cannot arp bind at the same time.
 ```
 Linux:
 arp
