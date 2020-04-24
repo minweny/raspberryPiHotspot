@@ -27,6 +27,15 @@ cat /etc/os-release
 ping -S 192.168.0.1 google.com
 # find out the default gateway
 ip route show
+ip route show | grep default
+```
+
+## install ssh
+```
+sudo apt-get install openssh-server
+sudo service ssh status
+hostname -I
+ssh -p 2022 mw@127.0.0.1
 ```
 
 ## Remote control pi from windows [http://larsonm.com/index.php/2013/remotely-reboot-your-raspberry-pi-from-a-windows-desktop-shortcut-using-plink-putty/]
