@@ -86,7 +86,8 @@ netsh interface ip delete neighbors "Network card name here" "Gateway.IP.goes.he
 > nmap cheatsheet[https://hackertarget.com/nmap-cheatsheet-a-quick-reference-guide/]  
 ```
 nmap -sn 192.168.1.0/24
-
+# find domain name server
+cat /etc/resolv.conf
 ```
 
 * Resolve "Host key verification failed"
