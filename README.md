@@ -250,6 +250,21 @@ iptables-restore < /etc/iptables.ipv4.nat
 
 To be continued...
 
+## ssh into pi zero only with USB[https://desertbot.io/blog/ssh-into-pi-zero-over-usb]
+```
+1. enable ssh
+touch /boot/ssh
+2. open config.txt, Append this line to the bottom
+dtoverlay=dwc2
+3. Edit cmdline.txt, After rootwait, append this text leaving only one space between rootwait and the new text (otherwise it might not be parsed correctly):
+modules-load=dwc2,g_ether
+4. use data port to boot pi
+5. ssh
+ssh -4 pi@raspberrypi.local
+6. open ssh, vnc[https://www.raspberrypi.org/documentation/remote-access/vnc/]
+sudo raspi-config
+```
+
 ## Additonal Notes:
 ```
 配置Pycharm环境变量：
