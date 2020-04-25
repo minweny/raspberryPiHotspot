@@ -81,8 +81,13 @@ netsh interface ip delete neighbors "Network card name here" "Gateway.IP.goes.he
 * Pi 4 won't boot without HDMI plugged in
 > Adding hdmi_force_hotplug=1 to /boot/config.txt seems to have solved the problem. [https://www.raspberrypi.org/forums/viewtopic.php?t=253312]
 
-* nmap, raspberrypi.local tutorial
-> [https://www.raspberrypi.org/documentation/remote-access/ip-address.md]
+* nmap, raspberrypi.local tutorial[https://www.raspberrypi.org/documentation/remote-access/ip-address.md] 
+> windows[https://nmap.org/download.html] 
+> nmap cheatsheet[https://hackertarget.com/nmap-cheatsheet-a-quick-reference-guide/]  
+```
+nmap -sn 192.168.1.0/24
+
+```
 
 * Resolve "Host key verification failed"
 > Delete raspberrypi.local column in known_hosts file if you are using windows  
