@@ -263,6 +263,8 @@ modules-load=dwc2,g_ether
 ssh -4 pi@raspberrypi.local
 6. open ssh, vnc[https://www.raspberrypi.org/documentation/remote-access/vnc/]
 sudo raspi-config
+7. check memory, CPU usage
+top
 ```
 
 ## Additonal Notes:
