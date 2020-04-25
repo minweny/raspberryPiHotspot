@@ -30,6 +30,28 @@ ip route show
 ip route show | grep default
 ```
 
+## set up hostname and modify sd card to connect to wifi(cannot do that, permission denied)  
+sometimes the pi is assigned wrong ip address, cannot ssh with hostname, nmap, ping  
+```
+open the file with linux system
+/rootfs/etc/dhcpcd.conf
+sudo nano /etc/dhcpcd.conf
+
+Edit:
+interface eth0
+static ip_address=192.168.0.4/24
+static routers=192.168.0.1
+static domain_name_servers=192.168.0.1
+
+If you have multiple pi, change hostname
+hostname=piZero
+hostname=piZeroW
+hostname=pi4_4g
+hostname=pi4_2g
+
+sudo reboot
+```
+
 ## install ssh
 ```
 sudo apt-get install openssh-server
