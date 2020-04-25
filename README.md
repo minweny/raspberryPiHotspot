@@ -38,6 +38,12 @@ hostname -I
 ssh -p 2022 mw@127.0.0.1
 ```
 
+## pi default username and password
+```
+pi
+raspberry
+```
+
 ## Remote control pi from windows [http://larsonm.com/index.php/2013/remotely-reboot-your-raspberry-pi-from-a-windows-desktop-shortcut-using-plink-putty/]
 ```
 plink -ssh user@server -pw password reboot
