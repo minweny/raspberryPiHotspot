@@ -35,7 +35,7 @@ Linux:
 traceroute -4
 ```
 
-## set up hostname and connect to wifi  
+## set up hostname and connect to wifi(it takes long time for new hostname to work)  
 > instead, just ping raspberrypi/raspberrypi.local for a few times. It would sometimes let you ssh via a weird IP 
 sometimes the pi is assigned wrong ip address, cannot ssh with hostname, nmap, ping  
 ```
@@ -43,8 +43,8 @@ ssh to pi, open the file(cannot edit sd card directly, permission denied)
 /rootfs/etc/dhcpcd.conf
 sudo nano /etc/dhcpcd.conf
 
-Append etho for pi4, usb0 for pi zero
-interface etho
+Append eth0 for pi4, usb0 for pi zero
+interface eth0
 static ip_address=192.168.0.4/24
 static routers=192.168.0.1
 static domain_name_servers=192.168.0.1
