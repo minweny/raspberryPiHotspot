@@ -81,12 +81,16 @@ raspberry
 
 ## Remote control pi from windows [http://larsonm.com/index.php/2013/remotely-reboot-your-raspberry-pi-from-a-windows-desktop-shortcut-using-plink-putty/]
 ```
+install putty on windows, then you would have plink
 plink -ssh user@server -pw password reboot
 plink -ssh pi@192.168.0.10 -pw password reboot
 plink -ssh pi@192.168.0.10 -pw password "sudo shutdown -h now"
 ```
 
-## pring ip table
+## vnc change resolution[https://shumeipai.nxez.com/2019/07/08/set-the-resolution-of-the-raspberry-pi-vnc.html]  
+sudo raspi-config -> advanced option -> resolution -> 1280 * 720  
+
+## print ip table
 ```
 Windows:
 route print -4
