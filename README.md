@@ -49,12 +49,15 @@ static ip_address=192.168.0.4/24
 static routers=192.168.0.1
 static domain_name_servers=192.168.0.1
 
-If you have multiple pi, change hostname
+If you have multiple pi, change hostname(doesn't work)
 terminal:
 hostname pi0a
 hostname pi0b
 hostname pi4a
 hostname pi4b
+
+change hostname with:
+sudo raspi-config
 
 sudo reboot
 
