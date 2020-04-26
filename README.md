@@ -57,6 +57,9 @@ hostname pi4a
 hostname pi4b
 
 sudo reboot
+
+windows get ip from hostanme
+nslookup pi0a
 ```
 
 ## install ssh
