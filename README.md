@@ -28,17 +28,23 @@ ping -S 192.168.0.1 google.com
 # find out the default gateway
 ip route show
 ip route show | grep default
+# find IP packet trace
+Windows:
+tracert -4
+Linux:
+traceroute -4
 ```
 
-## set up hostname and modify sd card to connect to wifi(cannot do that, permission denied)  
+## set up hostname and connect to wifi  
+> instead, just ping raspberrypi/raspberrypi.local for a few times. It would sometimes let you ssh via a weird IP 
 sometimes the pi is assigned wrong ip address, cannot ssh with hostname, nmap, ping  
 ```
-open the file with linux system
+ssh to pi, open the file(cannot edit sd card directly, permission denied)
 /rootfs/etc/dhcpcd.conf
 sudo nano /etc/dhcpcd.conf
 
-Edit:
-interface eth0
+Append etho for pi4, usb0 for pi zero
+interface etho
 static ip_address=192.168.0.4/24
 static routers=192.168.0.1
 static domain_name_servers=192.168.0.1
