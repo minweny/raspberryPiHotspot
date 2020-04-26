@@ -116,6 +116,13 @@ netsh interface ipv4 add neighbors "Wi-Fi 2" 10.0.0.1 b0-39-56-d3-08-2d
 netsh interface ip delete neighbors "Network card name here" "Gateway.IP.goes.here"
 ```
 
+## error “Internet Connection Sharing is currently enable for connection” when sharing my Wifi to ethernet  
+> https://www.thewindowsclub.com/an-error-occurred-while-internet-connection-sharing-was-being-enabled  
+```
+windows open services
+restart Internet Connection Sharing (ICS) service
+```
+
 ## Notes:
 * Pi 4 won't boot without HDMI plugged in
 > Adding hdmi_force_hotplug=1 to /boot/config.txt seems to have solved the problem. [https://www.raspberrypi.org/forums/viewtopic.php?t=253312]
