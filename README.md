@@ -6,6 +6,9 @@ Raspberry Pi 4 Install Raspbian and Launch Hotspot / 树莓派4设置以及创�
 
 ## Useful commands:
 ```bash
+# print architecture
+uname -m
+dpkg --print-architecture
 sudo shutdown -h now
 sudo reboot
 exit
