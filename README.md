@@ -147,7 +147,7 @@ cat /etc/resolv.conf
 > Raspberry Pi 4 uses Micro HDMI  
 > Raspberry Pi Zero uses Mini HDMI
 
-* X-forwarding
+* X-forwarding(not working, use vnc instead)  
 > [https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md] 
 > [http://raspberrypiprogramming.blogspot.com/2014/07/how-to-execute-x11-applications-from.html]  
 `ssh -Y pi@192.168.4.1`
