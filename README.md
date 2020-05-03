@@ -319,7 +319,8 @@ Edit /etc/rc.local and add this just above "exit 0" to install these rules on bo
 iptables-restore < /etc/iptables.ipv4.nat
 
 # Reboot and ensure it still functions.
-```
+``` 
+[http://www.zsythink.net/archives/1199] 
 ![](iptables.png) 
 
 
