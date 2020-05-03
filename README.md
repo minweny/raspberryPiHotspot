@@ -236,7 +236,13 @@ reboot
 // Use shift to change input method
 ```
 
-9. Launch Hotspot [https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md]  
+9. Launch Hotspot 
+[https://www.raspberrypi.org/documentation/configuration/wireless/access-point-routed.md] 
+[https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md] 
+[https://thepi.io/how-to-use-your-raspberry-pi-as-a-wireless-access-point/] 
+[https://elinux.org/RPI-Wireless-Hotspot] 
+[https://www.thegeekpub.com/240065/setup-a-raspberry-pi-wireless-access-point/] 
+
 ```
 # dnsmasq -> DHCP service, hostapd -> launch wifi
 sudo apt install dnsmasq hostapd
@@ -299,6 +305,12 @@ net.ipv4.ip_forward=1
 # Add a masquerade for outbound traffic on eth0:
 
 sudo iptables -t nat -A  POSTROUTING -o eth0 -j MASQUERADE
+
+or[https://learn.sparkfun.com/tutorials/setting-up-a-raspberry-pi-3-as-an-access-point/all]:
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE  
+sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
+
 # Save the iptables rule.
 
 sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
@@ -330,7 +342,23 @@ sudo raspi-config
 top
 ```
 
-## Additonal Notes:
+## Additonal Notes: 
+bridge etho and wifi0[https://www.pcgamer.com/how-to-build-a-raspberry-pi-wireless-access-point/] 
+```
+First:
+
+'auto br0'
+
+To bring the interface up at boot time.
+
+'iface br0 inet manual'
+
+To tell the bridge that we want the router’s DHCP service to deal with assigning it an IP address. Finally:
+
+'bridge_ports eth0 wlan0' 
+
+To tell the bridge precisely what you want it to do—that is, sit between the Ethernet and Wi-Fi devices, and bridge all network ports between them.
+```
 ```
 配置Pycharm环境变量：
 假设你把pycharm安装到/home/pi/pycharm-community-2019.1.3
