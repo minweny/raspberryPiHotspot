@@ -308,6 +308,8 @@ iptables-restore < /etc/iptables.ipv4.nat
 
 # Reboot and ensure it still functions.
 ```
+![](iptables.png) 
+
 
 To be continued...
 
